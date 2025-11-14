@@ -63,7 +63,7 @@ export interface DataSlide {
   whatYouLearn?: string[];
   keywords?: string[];
   example?: string;
-
+  cta?: string;
   //quiz
   // title?: string;
   question?: string;

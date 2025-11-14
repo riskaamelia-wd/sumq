@@ -1,16 +1,17 @@
+import { config } from "@/lib/config";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const { topic } = await req.json();
 
-  const response = await fetch(`${process.env.GROQ_API_URL}`, {
+  const response = await fetch(`${config.groq.url}`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
+      Authorization: `Bearer ${config.groq.apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: `${process.env.GROQ_MODEL}`,
+      model: `${config.groq.model}`,
       messages: [
         {
           role: "system",

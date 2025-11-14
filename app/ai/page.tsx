@@ -12,6 +12,7 @@ export default function TestPage() {
       body: JSON.stringify({ topic }),
     });
     const data = await res.json();
+    console.log(data);
     setResult(data.result);
   };
 
