@@ -1,8 +1,10 @@
 "use client";
-import Dashboard from "@/components/Dashboard";
+
 import { useRouter } from "next/navigation";
-const HomePage = () => {
+import Dashboard from "@/components/Dashboard";
+
+export default function DashboardPage() {
   const router = useRouter();
+
   return <Dashboard onNavigate={(view) => router.push(`/${view}`)} />;
-};
-export default HomePage;
+}
