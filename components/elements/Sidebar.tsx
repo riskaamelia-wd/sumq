@@ -37,7 +37,7 @@ const Sidebar = () => {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -20, opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="w-64 min-h-screen glass-panel border-r border-[#2A2D3A] p-6 flex flex-col"
+      className="w-64 h-screen glass-panel border-r border-[#2A2D3A] p-6 flex flex-col"
     >
       {/* Logo */}
       <Link href="/dashboard" className="mb-8 flex items-center gap-2">

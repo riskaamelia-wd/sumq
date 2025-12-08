@@ -32,7 +32,7 @@ export function GlassButton({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`px-6 py-3 rounded-xl flex items-center gap-2 transition-all ${
+      className={`!px-6 !py-3 rounded-xl flex items-center gap-2 transition-all ${
         variants[variant]
       } ${disabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`}
       whileHover={disabled ? {} : { scale: 1.02 }}

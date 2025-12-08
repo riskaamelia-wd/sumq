@@ -21,7 +21,7 @@ export function StatsCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: delay }}
-      className="glass-panel p-6 hover:border-white/20 transition-all cursor-pointer group"
+      className="glass-panel !p-6 hover:border-white/20 transition-all cursor-pointer group"
     >
       <div className="flex items-start justify-between mb-4">
         <div
@@ -30,7 +30,7 @@ export function StatsCard({
           <Icon className="w-6 h-6 text-white" />
         </div>
         <motion.div
-          className="text-xs px-3 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30"
+          className="text-xs !px-3 !py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: delay + 0.2 }}

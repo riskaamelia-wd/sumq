@@ -83,13 +83,13 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
   ];
 
   return (
-    <div className="flex-1 p-8">
+    <div className="flex-1 !p-8">
       {/* header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="mb-8"
+        className="!mb-8"
       >
         <h1 className="mb-2">Welcome back! 👋</h1>
         <p className="text-[#A0A0A0]">
@@ -102,7 +102,7 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="mb-8"
+        className="!mb-8 flex items-center gap-2"
       >
         <GlassButton icon={Plus} onClick={() => onNavigate("topics")}>
           Create New Topic
@@ -124,7 +124,7 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
       </motion.div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 !mb-8">
         {stats.map((stat, index) => (
           <StatsCard
             key={stat.title}
@@ -144,9 +144,9 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="lg:col-span-2 glass-panel p-6"
+          className="lg:col-span-2 glass-panel !p-6"
         >
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between !mb-6">
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5 text-[#4BD5FF]" />
               <h3>Recent Activity</h3>
@@ -156,14 +156,14 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
             </button>
           </div>
 
-          <div className="space-y-3">
+          <div className="!space-y-3">
             {recentActivity.map((activity, index) => (
               <motion.div
                 key={activity.id}
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.5 + index * 0.05 }}
-                className="glass-card p-4 hover:bg-white/10 transition-all cursor-pointer group"
+                className="glass-card !p-4 hover:bg-white/10 transition-all cursor-pointer group"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -199,21 +199,21 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
           initial={{ x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="space-y-6"
+          className="!space-y-6"
         >
           {/* Performance */}
-          <div className="glass-panel p-6">
-            <div className="flex items-center gap-2 mb-4">
+          <div className="glass-panel !p-6">
+            <div className="flex items-center gap-2 !mb-4">
               <TrendingUp className="w-5 h-5 text-[#4BFFB5]" />
               <h4>This Week</h4>
             </div>
-            <div className="space-y-4">
+            <div className="!space-y-4">
               <div>
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between !mb-2">
                   <span className="text-sm text-[#A0A0A0]">Slides Created</span>
                   <span>47</span>
                 </div>
-                <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                <div className="!h-2 bg-white/5 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: "78%" }}
@@ -223,11 +223,11 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
                 </div>
               </div>
               <div>
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between !mb-2">
                   <span className="text-sm text-[#A0A0A0]">AI Generations</span>
                   <span>23</span>
                 </div>
-                <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                <div className="!h-2 bg-white/5 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: "45%" }}
@@ -240,7 +240,7 @@ const Dashboard = ({ onNavigate }: DashboardProps) => {
           </div>
 
           {/* Quick Tip */}
-          <div className="glass-panel p-6 border-l-4 border-[#4BD5FF]">
+          <div className="glass-panel !p-6 border-l-4 border-[#4BD5FF]">
             <h4 className="mb-2">💡 Quick Tip</h4>
             <p className="text-sm text-[#A0A0A0]">
               Use the AI generate button to automatically create quiz questions
