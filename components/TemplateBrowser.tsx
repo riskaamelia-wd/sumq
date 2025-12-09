@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion } from "motion/react";
 import {
@@ -8,10 +10,10 @@ import {
   Grid,
   Image,
   Code,
-  Search,
   LucideIcon,
 } from "lucide-react";
 import { Modal } from "@/components/elements/Modal";
+import { SearchInput } from "@/components/elements/SearchInput";
 
 interface Template {
   id: string;
@@ -143,48 +145,38 @@ export function TemplateBrowser() {
   });
 
   return (
-    <div className="flex-1 p-8">
+    <div className="flex-1 !p-8">
       {/* Header */}
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="mb-8"
+        className="!mb-8"
       >
-        <h1 className="mb-2">Template Browser</h1>
+        <h1 className="!mb-2">Template Browser</h1>
         <p className="text-[#A0A0A0]">
           Choose from our collection of professionally designed templates
         </p>
       </motion.div>
 
       {/* Search Bar */}
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.1 }}
-        className="mb-6 relative max-w-md"
-      >
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#A0A0A0]" />
-        <input
-          type="text"
-          placeholder="Search templates..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full glass-card pl-12 pr-4 py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
-        />
-      </motion.div>
+      <SearchInput
+        placeholder="Search templates..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
 
       {/* Category Filters */}
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="mb-8 flex gap-3 overflow-x-auto pb-2"
+        className="!mb-8 flex gap-3 overflow-x-auto pb-2"
       >
         {categories.map((category) => (
           <motion.button
             key={category.id}
             onClick={() => setSelectedCategory(category.id)}
-            className={`px-4 py-2 rounded-xl whitespace-nowrap transition-all ${
+            className={`!px-4 !py-2 rounded-xl whitespace-nowrap transition-all ${
               selectedCategory === category.id
                 ? "bg-gradient-to-r from-[#4BD5FF]/20 to-[#B388FF]/20 text-white border border-[#4BD5FF]/30"
                 : "glass-card text-[#A0A0A0] hover:text-white hover:bg-white/10"
@@ -229,8 +221,8 @@ export function TemplateBrowser() {
               </div>
 
               {/* Info */}
-              <div className="p-4">
-                <div className="flex items-start justify-between mb-2">
+              <div className="!p-4">
+                <div className="flex items-start justify-between !mb-2">
                   <h4>{template.display_name}</h4>
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -249,7 +241,7 @@ export function TemplateBrowser() {
                 </p>
 
                 {/* Color dots */}
-                <div className="flex gap-2 mt-3">
+                <div className="flex gap-2 !mt-3">
                   <div
                     className="w-6 h-6 rounded-full border-2 border-white/20"
                     style={{ background: template.default_style.bgColor }}
@@ -266,7 +258,7 @@ export function TemplateBrowser() {
       </div>
 
       {filteredTemplates.length === 0 && (
-        <div className="glass-panel p-12 text-center">
+        <div className="glass-panel !p-12 text-center">
           <Layout className="w-16 h-16 mx-auto mb-4 text-[#A0A0A0]" />
           <p className="text-[#A0A0A0]">No templates found</p>
         </div>

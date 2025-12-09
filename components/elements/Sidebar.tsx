@@ -37,10 +37,10 @@ const Sidebar = () => {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -20, opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="w-64 h-screen glass-panel border-r border-[#2A2D3A] p-6 flex flex-col"
+      className="w-64 h-screen glass-panel border-r border-[#2A2D3A] !p-6 flex flex-col"
     >
       {/* Logo */}
-      <Link href="/dashboard" className="mb-8 flex items-center gap-2">
+      <Link href="/dashboard" className="!mb-8 flex items-center gap-2">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4BD5FF] to-[#B388FF] flex items-center justify-center">
           <Sparkles className="w-6 h-6 text-white" />
         </div>
@@ -53,7 +53,7 @@ const Sidebar = () => {
       </Link>
 
       {/* Navigation */}
-      <nav className="flex-1 space-y-2">
+      <nav className="flex-1 !space-y-2">
         {navItems.map((item) => {
           const Icon = item.icon;
           // * Check if current path matches the item href
@@ -64,7 +64,7 @@ const Sidebar = () => {
           return (
             <Link key={item.id} href={item.href}>
               <motion.div
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all cursor-pointer ${
+                className={`w-full flex items-center gap-3 !px-4 !py-3 rounded-xl transition-all cursor-pointer ${
                   isActive
                     ? "bg-gradient-to-r from-[#4BD5FF]/20 to-[#B388FF]/20 text-white border border-[#4BD5FF]/30"
                     : "text-[#A0A0A0] hover:text-white hover:bg-white/5"
@@ -81,8 +81,8 @@ const Sidebar = () => {
       </nav>
 
       {/* Footer */}
-      <div className="pt-6 border-t border-[#2A2D3A]">
-        <div className="glass-card p-4">
+      <div className="!pt-6 border-t border-[#2A2D3A]">
+        <div className="glass-card !p-4">
           <p className="text-xs text-[#A0A0A0] mb-1">Riska Amelia</p>
           <p className="text-sm">2025</p>
         </div>

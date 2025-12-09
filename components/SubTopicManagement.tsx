@@ -87,14 +87,14 @@ export function SubtopicManagement() {
   };
 
   return (
-    <div className="flex-1 p-8">
+    <div className="flex-1 !p-8">
       {/* Header */}
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="mb-8"
+        className="!mb-8"
       >
-        <h1 className="mb-2">Subtopic Management</h1>
+        <h1 className="!mb-2">Subtopic Management</h1>
         <p className="text-[#A0A0A0]">Organize subtopics within each topic</p>
       </motion.div>
 
@@ -105,15 +105,15 @@ export function SubtopicManagement() {
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="lg:col-span-4 glass-panel p-6"
+          className="lg:col-span-4 glass-panel !p-6"
         >
-          <h3 className="mb-4">Select Topic</h3>
-          <div className="space-y-2">
+          <h3 className="!mb-4">Select Topic</h3>
+          <div className="!space-y-2">
             {topics.map((topic) => (
               <motion.button
                 key={topic.id}
                 onClick={() => setSelectedTopic(topic.id)}
-                className={`w-full text-left px-4 py-3 rounded-xl transition-all ${
+                className={`w-full text-left !px-4 !py-3 rounded-xl transition-all ${
                   selectedTopic === topic.id
                     ? "bg-gradient-to-r from-[#4BD5FF]/20 to-[#B388FF]/20 border border-[#4BD5FF]/30"
                     : "glass-card hover:bg-white/10"
@@ -121,7 +121,7 @@ export function SubtopicManagement() {
                 whileHover={{ x: 4 }}
               >
                 <p>{topic.name}</p>
-                <p className="text-xs text-[#A0A0A0] mt-1">
+                <p className="text-xs text-[#A0A0A0] !mt-1">
                   {subtopics.filter((st) => st.topic_id === topic.id).length}{" "}
                   subtopics
                 </p>
@@ -138,7 +138,7 @@ export function SubtopicManagement() {
           className="lg:col-span-8"
         >
           {/* Action Bar */}
-          <div className="mb-4 flex justify-between items-center">
+          <div className="!mb-4 flex justify-between items-center">
             <h3>Subtopics ({filteredSubtopics.length})</h3>
             <GlassButton icon={Plus} onClick={() => handleOpenModal()}>
               Add Subtopic
@@ -146,21 +146,21 @@ export function SubtopicManagement() {
           </div>
 
           {/* Subtopics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 !gap-4">
             {filteredSubtopics.map((subtopic, index) => (
               <motion.div
                 key={subtopic.id}
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3 + index * 0.05 }}
-                className="glass-panel p-4 hover:border-white/20 transition-all group"
+                className="glass-panel !p-4 hover:border-white/20 transition-all group"
               >
-                <div className="flex items-start justify-between mb-3">
+                <div className="flex items-start justify-between !mb-3">
                   <div className="flex-1">
-                    <h4 className="mb-1">{subtopic.name}</h4>
+                    <h4 className="!mb-1">{subtopic.name}</h4>
                     <button
                       onClick={() => toggleActive(subtopic.id)}
-                      className={`px-2 py-1 rounded-full text-xs border transition-all ${
+                      className={`!px-2 !py-1 rounded-full text-xs border transition-all ${
                         subtopic.active
                           ? "bg-green-500/20 text-green-400 border-green-500/30"
                           : "bg-gray-500/20 text-gray-400 border-gray-500/30"
@@ -193,7 +193,7 @@ export function SubtopicManagement() {
           </div>
 
           {filteredSubtopics.length === 0 && (
-            <div className="glass-panel p-12 text-center">
+            <div className="glass-panel !p-12 text-center">
               <p className="text-[#A0A0A0]">
                 No subtopics found for this topic
               </p>

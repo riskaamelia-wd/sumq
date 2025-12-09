@@ -114,14 +114,14 @@ const TopicManagement = () => {
   };
 
   return (
-    <div className="flex-1 p-8">
+    <div className="flex-1 !p-8">
       {/* Header */}
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="mb-8"
+        className="!mb-8"
       >
-        <h1 className="mb-2">Topic Management</h1>
+        <h1 className="!mb-2">Topic Management</h1>
         <p className="text-[#A0A0A0]">
           Organize and manage your content topics
         </p>
@@ -132,17 +132,17 @@ const TopicManagement = () => {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1 }}
-        className="mb-6 flex flex-col sm:flex-row gap-4 justify-between"
+        className="!mb-6 flex flex-col sm:flex-row gap-4 justify-between"
       >
         {/* Search */}
         <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#A0A0A0]" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#A0A0A0] z-10 pointer-events-none" />
           <input
             type="text"
             placeholder="Search topics..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full glass-card pl-12 pr-4 py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
+            className="w-full glass-card !pl-12 !pr-4 !py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors relative"
           />
         </div>
 
@@ -163,10 +163,10 @@ const TopicManagement = () => {
           <table className="w-full">
             <thead>
               <tr className="border-b border-white/10">
-                <th className="text-left p-4 text-[#A0A0A0]">Name</th>
-                <th className="text-left p-4 text-[#A0A0A0]">Status</th>
-                <th className="text-left p-4 text-[#A0A0A0]">Created</th>
-                <th className="text-right p-4 text-[#A0A0A0]">Actions</th>
+                <th className="text-left !p-4 text-[#A0A0A0]">Name</th>
+                <th className="text-left !p-4 text-[#A0A0A0]">Status</th>
+                <th className="text-left !p-4 text-[#A0A0A0]">Created</th>
+                <th className="text-right !p-4 text-[#A0A0A0]">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -178,13 +178,13 @@ const TopicManagement = () => {
                   transition={{ delay: 0.3 + index * 0.05 }}
                   className="border-b border-white/5 hover:bg-white/5 transition-colors"
                 >
-                  <td className="p-4">
+                  <td className="!p-4">
                     <span className="text-white">{topic.name}</span>
                   </td>
-                  <td className="p-4">
+                  <td className="!p-4">
                     <button
                       onClick={() => toggleActive(topic.id)}
-                      className={`px-3 py-1 rounded-full text-xs border transition-all ${
+                      className={`!px-3 !py-1 rounded-full text-xs border transition-all ${
                         topic.active
                           ? "bg-green-500/20 text-green-400 border-green-500/30"
                           : "bg-gray-500/20 text-gray-400 border-gray-500/30"
@@ -193,10 +193,10 @@ const TopicManagement = () => {
                       {topic.active ? "Active" : "Inactive"}
                     </button>
                   </td>
-                  <td className="p-4 text-[#A0A0A0]">
+                  <td className="!p-4 text-[#A0A0A0]">
                     {new Date(topic.created_at).toLocaleDateString()}
                   </td>
-                  <td className="p-4">
+                  <td className="!p-4">
                     <div className="flex items-center justify-end gap-2">
                       <motion.button
                         onClick={() => handleOpenModal(topic)}
