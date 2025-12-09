@@ -268,15 +268,15 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
   };
 
   return (
-    <div className="flex-1 p-8">
+    <div className="flex-1 !p-8">
       {/* Header */}
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="mb-6 flex items-center justify-between"
+        className="!mb-6 flex items-center justify-between"
       >
         <div>
-          <h1 className="mb-2">Slide Editor</h1>
+          <h1 className="!mb-2">Slide Editor</h1>
           <p className="text-[#A0A0A0]">
             Select topic → subtopic → create slides
           </p>
@@ -306,18 +306,18 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.1 }}
-          className="col-span-3 glass-panel p-6"
+          className="col-span-3 glass-panel !p-6"
         >
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-2 !mb-4">
             <FolderTree className="w-5 h-5 text-[#4BD5FF]" />
             <h3>Topics</h3>
           </div>
-          <div className="space-y-2">
+          <div className="!space-y-2">
             {topics.map((topic) => (
               <motion.button
                 key={topic.id}
                 onClick={() => handleTopicSelect(topic.id)}
-                className={`w-full text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between ${
+                className={`w-full text-left !px-4 !py-3 rounded-xl transition-all flex items-center justify-between ${
                   selectedTopicId === topic.id
                     ? "bg-gradient-to-r from-[#4BD5FF]/20 to-[#B388FF]/20 border border-[#4BD5FF]/30"
                     : "glass-card hover:bg-white/10"
@@ -326,7 +326,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
               >
                 <div>
                   <p className="text-sm">{topic.name}</p>
-                  <p className="text-xs text-[#A0A0A0] mt-1">
+                  <p className="text-xs text-[#A0A0A0] !mt-1">
                     {subtopics.filter((st) => st.topic_id === topic.id).length}{" "}
                     subtopics
                   </p>
@@ -342,14 +342,14 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
           initial={{ x: -20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="col-span-3 glass-panel p-6"
+          className="col-span-3 glass-panel !p-6"
         >
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-2 !mb-4">
             <Layers className="w-5 h-5 text-[#B388FF]" />
             <h3>Subtopics</h3>
           </div>
           {selectedTopicId ? (
-            <div className="space-y-2">
+            <div className="!space-y-2">
               {filteredSubtopics.map((subtopic) => {
                 const slideCount = slides.filter(
                   (s) => s.subtopic_id === subtopic.id
@@ -358,7 +358,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                   <motion.button
                     key={subtopic.id}
                     onClick={() => handleSubtopicSelect(subtopic.id)}
-                    className={`w-full text-left px-4 py-3 rounded-xl transition-all flex items-center justify-between ${
+                    className={`w-full text-left !px-4 !py-3 rounded-xl transition-all flex items-center justify-between ${
                       selectedSubtopicId === subtopic.id
                         ? "bg-gradient-to-r from-[#B388FF]/20 to-[#FF6B9D]/20 border border-[#B388FF]/30"
                         : "glass-card hover:bg-white/10"
@@ -367,7 +367,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                   >
                     <div>
                       <p className="text-sm">{subtopic.name}</p>
-                      <p className="text-xs text-[#A0A0A0] mt-1">
+                      <p className="text-xs text-[#A0A0A0] !mt-1">
                         {slideCount} slides
                       </p>
                     </div>
@@ -391,7 +391,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
           className="col-span-6"
         >
           {selectedSubtopicId ? (
-            <div className="glass-panel p-6">
+            <div className="glass-panel !p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3>Slides ({filteredSlides.length})</h3>
                 <GlassButton icon={Plus} onClick={handleAddNewSlide}>
@@ -448,7 +448,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
               )}
             </div>
           ) : (
-            <div className="glass-panel p-6 text-center py-12 text-[#A0A0A0]">
+            <div className="glass-panel !p-6 text-center py-12 text-[#A0A0A0]">
               ← Select a subtopic to view slides
             </div>
           )}
@@ -467,15 +467,15 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
               className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
             />
 
-            <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+            <div className="fixed inset-0 flex items-center justify-center z-50 !p-4">
               <motion.div
                 initial={{ scale: 0.9, opacity: 0, y: 20 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                className="glass-panel w-full max-w-7xl max-h-[90vh] overflow-y-auto p-6"
+                className="glass-panel w-full max-w-7xl max-h-[90vh] overflow-y-auto !p-6"
               >
                 {/* Modal Header */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+                <div className="flex items-center justify-between !mb-6 !pb-4 border-b border-white/10">
                   <h3>Edit Slide</h3>
                   <div className="flex gap-2">
                     <motion.button
@@ -520,12 +520,12 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Left: Preview */}
                   <div>
-                    <h4 className="mb-4">Live Preview</h4>
+                    <h4 className="!mb-4">Live Preview</h4>
                     <motion.div
                       key={editingSlide.id}
                       initial={{ scale: 0.95, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
-                      className="aspect-video rounded-2xl p-12 relative overflow-hidden flex items-center justify-center"
+                      className="aspect-video rounded-2xl !p-12 relative overflow-hidden flex items-center justify-center"
                       style={{
                         background: `linear-gradient(135deg, ${editingSlide.bgColor}, ${editingSlide.decorColor})`,
                       }}
@@ -540,7 +540,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                       />
 
                       <div className="relative z-10 text-center text-white">
-                        <h3 className="mb-4">{editingSlide.title}</h3>
+                        <h3 className="!mb-4">{editingSlide.title}</h3>
                         {editingSlide.subtitle && (
                           <p className="text-white/90">
                             {editingSlide.subtitle}
@@ -548,7 +548,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                         )}
                         {Array.isArray(editingSlide.data.points) &&
                           editingSlide.data.points.length > 0 && (
-                            <ul className="mt-6 space-y-2 text-left max-w-md mx-auto text-sm">
+                            <ul className="!mt-6 !space-y-2 text-left max-w-md mx-auto text-sm">
                               {editingSlide.data.points.map(
                                 (point: string, index: number) => (
                                   <li
@@ -563,15 +563,17 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                             </ul>
                           )}
                         {editingSlide.data.question && (
-                          <div className="mt-6 text-left max-w-md mx-auto text-sm">
-                            <p className="mb-4">{editingSlide.data.question}</p>
+                          <div className="!mt-6 text-left max-w-md mx-auto text-sm">
+                            <p className="!mb-4">
+                              {editingSlide.data.question}
+                            </p>
                             <div className="space-y-2">
                               {Array.isArray(editingSlide.data.options) &&
                                 editingSlide.data.options.map(
                                   (option: string, index: number) => (
                                     <div
                                       key={index}
-                                      className="glass-card p-2 rounded-lg text-xs"
+                                      className="glass-card !p-2 rounded-lg text-xs"
                                     >
                                       {String.fromCharCode(65 + index)}.{" "}
                                       {option}
@@ -587,11 +589,11 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
 
                   {/* Right: Form */}
                   <div>
-                    <h4 className="mb-4">Slide Properties</h4>
-                    <div className="space-y-4">
+                    <h4 className="!mb-4">Slide Properties</h4>
+                    <div className="!space-y-4">
                       {/* Template Selection */}
                       <div>
-                        <label className="block text-sm text-[#A0A0A0] mb-2">
+                        <label className="block text-sm text-[#A0A0A0] !mb-2">
                           Template
                         </label>
                         <select
@@ -599,7 +601,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                           onChange={(e) =>
                             updateSlide({ template_id: e.target.value })
                           }
-                          className="w-full glass-card px-4 py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
+                          className="w-full glass-card !px-4 !py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
                         >
                           {templates.map((template) => (
                             <option key={template.id} value={template.id}>
@@ -611,7 +613,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
 
                       {/* Title */}
                       <div>
-                        <label className="block text-sm text-[#A0A0A0] mb-2">
+                        <label className="block text-sm text-[#A0A0A0] !mb-2">
                           Title
                         </label>
                         <input
@@ -620,7 +622,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                           onChange={(e) =>
                             updateSlide({ title: e.target.value })
                           }
-                          className="w-full glass-card px-4 py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
+                          className="w-full glass-card !px-4 !py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
                           placeholder="Enter slide title..."
                         />
                       </div>
@@ -628,7 +630,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                       {/* Subtitle (conditional) */}
                       {editingSlide.template_id === "title_slide" && (
                         <div>
-                          <label className="block text-sm text-[#A0A0A0] mb-2">
+                          <label className="block text-sm text-[#A0A0A0] !mb-2">
                             Subtitle
                           </label>
                           <input
@@ -637,7 +639,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                             onChange={(e) =>
                               updateSlide({ subtitle: e.target.value })
                             }
-                            className="w-full glass-card px-4 py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
+                            className="w-full glass-card !px-4 !py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
                             placeholder="Enter subtitle..."
                           />
                         </div>
@@ -646,7 +648,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                       {/* Dynamic Data Fields */}
                       {editingSlide.template_id === "content_slide" && (
                         <div>
-                          <label className="block text-sm text-[#A0A0A0] mb-2">
+                          <label className="block text-sm text-[#A0A0A0] !mb-2">
                             Content Points
                           </label>
                           <textarea
@@ -665,7 +667,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                                 },
                               })
                             }
-                            className="w-full glass-card px-4 py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors resize-none"
+                            className="w-full glass-card !px-4 !py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors resize-none"
                             rows={5}
                             placeholder="Enter one point per line..."
                           />
@@ -675,7 +677,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                       {editingSlide.template_id === "quiz_slide" && (
                         <>
                           <div>
-                            <label className="block text-sm text-[#A0A0A0] mb-2">
+                            <label className="block text-sm text-[#A0A0A0] !mb-2">
                               Question
                             </label>
                             <input
@@ -689,12 +691,12 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                                   },
                                 })
                               }
-                              className="w-full glass-card px-4 py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
+                              className="w-full glass-card !px-4 !py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors"
                               placeholder="Enter question..."
                             />
                           </div>
                           <div>
-                            <label className="block text-sm text-[#A0A0A0] mb-2">
+                            <label className="block text-sm text-[#A0A0A0] !mb-2">
                               Options
                             </label>
                             <textarea
@@ -713,7 +715,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                                   },
                                 })
                               }
-                              className="w-full glass-card px-4 py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors resize-none"
+                              className="w-full glass-card !px-4 !py-3 rounded-xl border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors resize-none"
                               rows={4}
                               placeholder="Enter one option per line..."
                             />
@@ -724,7 +726,7 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                       {/* Color Pickers */}
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm text-[#A0A0A0] mb-2">
+                          <label className="block text-sm text-[#A0A0A0] !mb-2">
                             Background
                           </label>
                           <div className="flex gap-2 items-center">
@@ -742,12 +744,12 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                               onChange={(e) =>
                                 updateSlide({ bgColor: e.target.value })
                               }
-                              className="flex-1 glass-card px-3 py-2 rounded-lg border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors text-sm font-mono"
+                              className="flex-1 glass-card !px-3 !py-2 rounded-lg border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors text-sm font-mono"
                             />
                           </div>
                         </div>
                         <div>
-                          <label className="block text-sm text-[#A0A0A0] mb-2">
+                          <label className="block text-sm text-[#A0A0A0] !mb-2">
                             Decoration
                           </label>
                           <div className="flex gap-2 items-center">
@@ -765,14 +767,14 @@ export function SlideEditor({ onViewSlides }: SlideEditorProps) {
                               onChange={(e) =>
                                 updateSlide({ decorColor: e.target.value })
                               }
-                              className="flex-1 glass-card px-3 py-2 rounded-lg border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors text-sm font-mono"
+                              className="flex-1 glass-card !px-3 !py-2 rounded-lg border border-white/10 focus:border-[#4BD5FF]/50 focus:outline-none transition-colors text-sm font-mono"
                             />
                           </div>
                         </div>
                       </div>
 
                       {/* Actions */}
-                      <div className="pt-4 border-t border-white/10 flex gap-3">
+                      <div className="!pt-4 border-t border-white/10 flex gap-3">
                         <GlassButton
                           icon={Save}
                           className="flex-1"

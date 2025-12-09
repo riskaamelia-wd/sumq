@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight, Download, Share2, X } from "lucide-react";
@@ -101,11 +103,11 @@ export function SlideViewer() {
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="p-8 pb-4"
+          className="!p-8 !pb-4"
         >
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="mb-2">Slide Viewer</h1>
+              <h1 className="!mb-2">Slide Viewer</h1>
               <p className="text-[#A0A0A0]">
                 Preview your slides in presentation mode
               </p>
@@ -123,7 +125,7 @@ export function SlideViewer() {
       )}
 
       {/* Main Content */}
-      <div className={`flex-1 ${isFullscreen ? "p-0" : "p-8 pt-4"}`}>
+      <div className={`flex-1 ${isFullscreen ? "!p-0" : "!p-8 !pt-4"}`}>
         <div className="h-full flex flex-col">
           {/* Slide Display */}
           <div className="flex-1 relative">
@@ -134,7 +136,7 @@ export function SlideViewer() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.3 }}
-                className={`w-full h-full rounded-2xl relative overflow-hidden flex items-center justify-center ${
+                className={`w-full h-full !rounded-2xl relative overflow-hidden flex items-center justify-center ${
                   isFullscreen ? "rounded-none" : ""
                 }`}
                 style={{
@@ -148,24 +150,24 @@ export function SlideViewer() {
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 0.3 }}
-                  className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl"
+                  className="absolute top-0 right-0 w-96 h-96 !rounded-full blur-3xl"
                   style={{ background: currentSlide.decorColor }}
                 />
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 0.3 }}
                   transition={{ delay: 0.1 }}
-                  className="absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl"
+                  className="absolute bottom-0 left-0 w-72 h-72 !rounded-full blur-3xl"
                   style={{ background: currentSlide.bgColor }}
                 />
 
                 {/* Content */}
-                <div className="relative z-10 text-center text-white max-w-4xl px-8">
+                <div className="relative z-10 text-center text-white max-w-4xl !px-8">
                   <motion.h1
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="mb-6"
+                    className="!mb-6"
                   >
                     {currentSlide.title}
                   </motion.h1>
@@ -186,7 +188,7 @@ export function SlideViewer() {
                       initial={{ y: 30, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
-                      className="mt-8 space-y-4 text-left max-w-2xl mx-auto text-xl"
+                      className="!mt-8 !space-y-4 text-left max-w-2xl mx-auto text-xl"
                     >
                       {Array.isArray(currentSlide.data.points) &&
                         currentSlide.data.points.length > 0 &&
@@ -212,12 +214,12 @@ export function SlideViewer() {
                       initial={{ y: 30, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ delay: 0.3 }}
-                      className="mt-8 text-left max-w-2xl mx-auto"
+                      className="!mt-8 text-left max-w-2xl mx-auto"
                     >
-                      <p className="mb-6 text-2xl">
+                      <p className="!mb-6 text-2xl">
                         {currentSlide.data.question}
                       </p>
-                      <div className="space-y-3">
+                      <div className="!space-y-3">
                         {Array.isArray(currentSlide.data.options) &&
                           currentSlide.data.options.length > 0 &&
                           currentSlide.data.options.map(
@@ -227,11 +229,11 @@ export function SlideViewer() {
                                 initial={{ x: -20, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 transition={{ delay: 0.4 + index * 0.1 }}
-                                className="w-full glass-panel p-4 rounded-xl text-lg text-white hover:bg-white/20 transition-all text-left"
+                                className="w-full glass-panel !p-4 rounded-xl text-lg text-white hover:bg-white/20 transition-all text-left"
                                 whileHover={{ scale: 1.02, x: 10 }}
                                 whileTap={{ scale: 0.98 }}
                               >
-                                <span className="inline-block w-8 h-8 rounded-lg bg-white/20 text-center leading-8 mr-3">
+                                <span className="inline-block w-8 h-8 rounded-lg bg-white/20 text-center leading-8 !mr-3">
                                   {String.fromCharCode(65 + index)}
                                 </span>
                                 {option}
@@ -279,7 +281,7 @@ export function SlideViewer() {
                 </div>
 
                 {/* Slide Counter */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 glass-panel px-6 py-3 rounded-full text-white">
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 glass-panel !px-6 !py-3 rounded-full text-white">
                   {currentIndex + 1} / {slides.length}
                 </div>
 
@@ -287,7 +289,7 @@ export function SlideViewer() {
                 <div className="absolute top-8 right-8 flex gap-3">
                   <motion.button
                     onClick={() => setIsFullscreen(!isFullscreen)}
-                    className="glass-panel px-4 py-2 rounded-full text-white text-sm hover:bg-white/20 transition-all"
+                    className="glass-panel !px-4 !py-2 rounded-full text-white text-sm hover:bg-white/20 transition-all"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -310,7 +312,7 @@ export function SlideViewer() {
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              className="mt-6 glass-panel p-6"
+              className="!mt-6 glass-panel !p-6"
             >
               <div className="flex items-center gap-4">
                 <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
@@ -329,7 +331,7 @@ export function SlideViewer() {
               </div>
 
               {/* Thumbnail Navigation */}
-              <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
+              <div className="!mt-4 flex gap-3 overflow-x-auto pb-2">
                 {slides.map((slide, index) => (
                   <motion.button
                     key={slide.id}
@@ -345,7 +347,7 @@ export function SlideViewer() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <div className="w-full h-full flex items-center justify-center text-white text-xs p-2">
+                    <div className="w-full h-full flex items-center justify-center text-white text-xs !p-2">
                       <p className="truncate">{slide.title}</p>
                     </div>
                   </motion.button>
