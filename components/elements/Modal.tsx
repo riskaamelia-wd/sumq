@@ -37,12 +37,12 @@ export function Modal({
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+          <div className="fixed inset-0 flex items-center justify-center z-50 !p-4">
             <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className={`glass-panel w-full ${sizes[size]} max-h-[90vh] overflow-y-auto p-6`}
+              className={`glass-panel w-full ${sizes[size]} max-h-[90vh] overflow-y-auto !p-6`}
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">

@@ -21,7 +21,7 @@ export const InfoCard: React.FC<TemplateProps<InfoCardSlide>> = ({ slide }) => {
 
       <div className="relative h-full flex flex-col">
         {/* * Decorative elements */}
-        <div className="flex justify-between items-start mb-4">
+        <div className="flex justify-between items-start !mb-4">
           <div className={`${slide.decorColor} text-2xl`}>✺</div>
           <div className="flex gap-2">
             <div className={`${slide.decorColor} text-xl`}>⟶</div>
